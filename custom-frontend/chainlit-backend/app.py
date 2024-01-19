@@ -8,7 +8,8 @@ from chainlit.server import app
 import chainlit as cl
 
 
-client = AsyncOpenAI(api_key=os.environ["OPENAI_API_KEY"])
+# client = AsyncOpenAI(api_key=os.environ["OPENAI_API_KEY"])
+client=AsyncOpenAI(api_key='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')
 
 settings = {
     "model": "gpt-3.5-turbo",

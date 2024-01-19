@@ -7,6 +7,7 @@ import {
   useChatMessages,
   IStep,
 } from "@chainlit/react-client";
+ 
 import { useState } from "react";
 
 export function Playground() {
@@ -53,7 +54,7 @@ export function Playground() {
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col">
       <div className="flex-1 overflow-auto p-6">
         <div className="space-y-4">
-          {messages.map((message) => renderMessage(message))}
+          {messages.map((message: any) => renderMessage(message))}
         </div>
       </div>
       <div className="border-t p-4 bg-white dark:bg-gray-800">
@@ -64,8 +65,8 @@ export function Playground() {
             id="message-input"
             placeholder="Type a message"
             value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            onKeyUp={(e) => {
+            onChange={(e: { target: { value: any; }; }) => setInputValue(e.target.value)}
+            onKeyUp={(e: { key: string; }) => {
               if (e.key === "Enter") {
                 handleSendMessage();
               }
